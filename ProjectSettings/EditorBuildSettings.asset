@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/MusicRoom2.unity
-  - enabled: 0
-    path: Assets/MusicRoom1.unity
   - enabled: 1
+    path: Assets/MusicRoom1.unity
+  - enabled: 0
     path: Assets/OculusRoom2.unity

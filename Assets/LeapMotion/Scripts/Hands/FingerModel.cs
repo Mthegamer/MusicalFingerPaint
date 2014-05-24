@@ -55,7 +55,8 @@ public abstract class FingerModel : MonoBehaviour {
   // Returns the center of the given bone on the finger in relation to the controller.
   public Vector3 GetBonePosition(int bone_type) {
     Bone bone = finger_.Bone((Bone.BoneType)(bone_type));
-    return controller_.transform.TransformPoint(bone.Center.ToUnityScaled());
+    Vector center = (bone.NextJoint + bone.PrevJoint) / 2;
+    return controller_.transform.TransformPoint(center.ToUnityScaled());
   }
 
   // Returns the direction the given bone is facing on the finger in relation to the controller.

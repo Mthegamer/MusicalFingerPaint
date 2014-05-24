@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>13C64</string>
+	<string>13C1021</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>LeapSynthEngine</string>
+	<string>LeapSynthEngine2</string>
 	<key>CFBundleIdentifier</key>
-	<string>leapmotion.LeapSynthEngine</string>
+	<string>leapmotion.LeapSynthEngine2</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>LeapSynthEngine</string>
+	<string>LeapSynthEngine2</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
@@ -43,7 +43,7 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>5B130a</string>
+	<string>5B1008</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
@@ -51,9 +51,9 @@
 	<key>DTSDKName</key>
 	<string>macosx10.9</string>
 	<key>DTXcode</key>
-	<string>0510</string>
+	<string>0511</string>
 	<key>DTXcodeBuild</key>
-	<string>5B130a</string>
+	<string>5B1008</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2014 Matthew Tytel. All rights reserved.</string>
 </dict>
