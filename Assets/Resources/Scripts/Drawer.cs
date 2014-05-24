@@ -4,27 +4,32 @@ using Leap;
 
 public class Drawer : MonoBehaviour {
 
-  public Automation canvas;
+  public CanvasAutomation canvas;
 
   private const float THUMB_TRIGGER_DISTANCE = 0.04f;
-  private bool drawing_ = false;
+  private const float MIN_CONFIDENCE = 0.4f;
 
 	void Update () {
-    Hand leap_hand = GetComponent<HandModel>().GetLeapHand();
+    HandModel hand_model = GetComponent<HandModel>();
+    Hand leap_hand = hand_model.GetLeapHand();
+
+    if (leap_hand == null)
+      return;
 
     bool draw_trigger = false;
-    Vector3 thumb_tip = leap_hand.Fingers[0].JointPosition(Finger.FingerJoint.JOINT_TIP).ToUnityScaled();
+    Vector3 thumb_tip = leap_hand.Fingers[0].TipPosition.ToUnityScaled();
 
     for (int i = 1; i < 5 && !draw_trigger; ++i) {
       for (int j = 0; j < 4 && !draw_trigger; ++j) {
-        Vector3 difference = leap_hand.Fingers[i].JointPosition((Finger.FingerJoint)(j)).ToUnityScaled() -
-          thumb_tip;
-        if (difference.magnitude < THUMB_TRIGGER_DISTANCE && leap_hand.Confidence > 0.5f)
+        Finger.FingerJoint joint = (Finger.FingerJoint)(j);
+        Vector3 difference = leap_hand.Fingers[i].JointPosition(joint).ToUnityScaled() - thumb_tip;
+
+        if (difference.magnitude < THUMB_TRIGGER_DISTANCE && leap_hand.Confidence > MIN_CONFIDENCE)
           draw_trigger = true;
       }
     }
-    if (drawing_ && draw_trigger)
-      canvas.NextPoint(transform.TransformPoint(leap_hand.Fingers[1].TipPosition.ToUnityScaled()));
-    drawing_ = draw_trigger;
+
+    if (draw_trigger)
+      canvas.AddNextPoint(hand_model.fingers[1].GetJointPosition(FingerModel.NUM_JOINTS - 1));
   }
 }

@@ -29,7 +29,7 @@ public class AutomationSender2 : MonoBehaviour {
 	}
 	
 	void LateUpdate() {
-    Vector3 last_point = GameObject.Find("Canvas").GetComponent<Automation>().GetLastPoint();
+    Vector3 last_point = GameObject.Find("Canvas").GetComponent<CanvasAutomation>().GetLastPoint();
     int octave = (int)Mathf.Floor(last_point[1] / SCALE_WIDTH);
     float scale_pos = (last_point[1] / SCALE_WIDTH - octave) * scale.Length;
     int scale_index = (int)scale_pos;
@@ -44,7 +44,6 @@ public class AutomationSender2 : MonoBehaviour {
     setWaveform(waveform);
     float feedback = Mathf.Clamp(last_point[2] + 4, 0.0f, 9.0f) / 20.0f + 0.3f;
     setDelayFeedback(feedback);
-    Debug.Log(waveform + "     " + feedback);
 	}
 
   void Awake() {
