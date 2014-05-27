@@ -7,7 +7,7 @@ public class Drawer : MonoBehaviour {
   public CanvasAutomation canvas;
 
   private const float THUMB_TRIGGER_DISTANCE = 0.04f;
-  private const float MIN_CONFIDENCE = 0.4f;
+  private const float MIN_CONFIDENCE = 0.2f;
 
 	void Update () {
     HandModel hand_model = GetComponent<HandModel>();
