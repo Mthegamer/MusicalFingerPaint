@@ -8,7 +8,7 @@ public class CanvasAutomation : MonoBehaviour {
 	public Material material_;
 
   private const int INTERPOLATION_AMT = 3;
-  private const int MAX_POINTS = 1000;
+  private const int MAX_POINTS = 400;
   private const int POINT_MEMORY = 4;
   private const int TUBE_FACES = 5;
   private const int VERTEX_NUM = TUBE_FACES * 2;
