@@ -12,7 +12,7 @@ using Leap;
 // closest rigidbody with a spring force if it's within a given range.
 public class MagneticPinch : MonoBehaviour {
 
-  const float TRIGGER_DISTANCE_RATIO = 0.7f;
+  private const float TRIGGER_DISTANCE_RATIO = 0.7f;
 
   public float forceSpringConstant = 100.0f;
   public float magnetDistance = 2.0f;
@@ -72,7 +72,7 @@ public class MagneticPinch : MonoBehaviour {
       }
     }
 
-    Vector3 pinch_position = hand_model.fingers[0].GetJointPosition(FingerModel.NUM_JOINTS - 1);
+    Vector3 pinch_position = hand_model.fingers[0].GetTipPosition();
 
     // Only change state if it's different.
     if (trigger_pinch && !pinching_)
